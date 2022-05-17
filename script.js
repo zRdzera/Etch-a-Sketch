@@ -1,12 +1,10 @@
 const container = document.querySelector('#container');
-// const button = document.querySelector('button');
-const range = document.querySelector('#grid-size');
+const slider = document.querySelector('#grid-size');
+const showValue = document.querySelector('#slider p');
 
 let mousePressed = false;
 document.body.onmousedown = () => (mousePressed = true);
 document.body.onmouseup = () => (mousePressed = false);
-
-// button.addEventListener('click', () => createDivs(prompt("Type the number of squares you want per line: ", 16)));
 
 function removeDivs(){
     while (container.firstChild) {
@@ -31,7 +29,6 @@ function createDivs(size = 16){
         }
     }
 }
-
 createDivs();
 
 function changeSquareColor(e){
@@ -40,6 +37,14 @@ function changeSquareColor(e){
     e.target.style.backgroundColor = "gray";
     e.target.style.border = "none";     
 }
+
+function sliderChangeGrid(){
+    createDivs(slider.value);
+    showValue.textContent = slider.value;
+}
+
+slider.addEventListener('input', sliderChangeGrid);
+
 
 
 

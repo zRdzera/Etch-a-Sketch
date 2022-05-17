@@ -11,3 +11,7 @@
     box-sizing: border-box;
     border: 1px solid gray;
 }
+
+#grid-size {
+    width: 10%;
+}

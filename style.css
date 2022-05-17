@@ -4,9 +4,10 @@
     display: flex;
     flex-wrap: wrap;
     margin: 10px auto;
+    justify-content: center;
 }
 
 .square {
     box-sizing: border-box;
-    border: 2px solid red;
+    border: 1px solid gray;
 }

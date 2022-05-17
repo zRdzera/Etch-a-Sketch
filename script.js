@@ -1,7 +1,12 @@
 const container = document.querySelector('#container');
-const button = document.querySelector('button');
+// const button = document.querySelector('button');
+const range = document.querySelector('#grid-size');
 
-button.addEventListener('click', () => createDivs(prompt("Type the number of squares you want per line: ", 16)));
+let mousePressed = false;
+document.body.onmousedown = () => (mousePressed = true);
+document.body.onmouseup = () => (mousePressed = false);
+
+// button.addEventListener('click', () => createDivs(prompt("Type the number of squares you want per line: ", 16)));
 
 function removeDivs(){
     while (container.firstChild) {
@@ -20,6 +25,8 @@ function createDivs(size = 16){
             let squares = document.createElement('div');
             squares.setAttribute('class', 'square');
             squares.style.cssText = `width: ${cellWidth}; height: ${cellHeight}`;
+            squares.addEventListener('mousedown', changeSquareColor);
+            squares.addEventListener('mouseover', changeSquareColor);
             container.appendChild(squares);
         }
     }
@@ -27,17 +34,14 @@ function createDivs(size = 16){
 
 createDivs();
 
-function executeHover(){
-    const divs = document.querySelectorAll('.square');
-    divs.forEach(element => {
-        element.addEventListener('mouseover', () => 
-        {
-            element.style.backgroundColor = "gray";
-            element.style.border = "none";
-        });
-    });
+function changeSquareColor(e){
+    if(e.type === 'mouseover' && mousePressed === false) return;
+    
+    e.target.style.backgroundColor = "gray";
+    e.target.style.border = "none";     
 }
 
-executeHover();
+
+
 
 

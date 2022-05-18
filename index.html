@@ -7,19 +7,40 @@
     <title>Etch a Sketch</title>
 
     <link rel="stylesheet" href="style.css" id="style">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
     <script src="script.js" defer></script>
 </head>
 <body>
 
-    <h1>Etch a Sketch</h1>
+    <main>
+        <div id="slider-menu">
+            <h1>Etch a Sketch</h1>
 
-    <div id="slider">
-        <h3>Choose your grid size</h3>
-        <input type="range" id="grid-size" value="16" min="1" max="64">
-        <p>16</p>
-    </div>
-    
-    <div id="container"></div>
+            <div id="slider">
+                <h3>Choose your grid size</h3>
+                <p>Grid-size: 16 x 16</p>
+                <input type="range" id="grid-size" value="16" min="1" max="64">
+                <button id="confirm-button">Confirm</button>
+            </div>
+
+            <div id="picker">
+                <h3>Choose the pen color</h3>
+                <input type="color" id="color-picker" value="#000000">
+            </div>
+
+            <div id="clear-button">
+                <button value="clear">Clear</button>
+            </div>
+            
+        </div>
+        
+        <div id="container"></div>
+    </main>
 
 </body>
 </html>

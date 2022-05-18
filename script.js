@@ -1,6 +1,9 @@
 const container = document.querySelector('#container');
 const slider = document.querySelector('#grid-size');
 const showValue = document.querySelector('#slider p');
+const colorPenPicker = document.querySelector('#color-picker');
+const clearButton = document.querySelector('#clear-button button');
+const confirmButton = document.querySelector('#confirm-button');
 
 let mousePressed = false;
 document.body.onmousedown = () => (mousePressed = true);
@@ -10,11 +13,10 @@ function removeDivs(){
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
+    createDivs(slider.value);
 }
 
 function createDivs(size = 16){
-    removeDivs();
-
     let cellWidth = 600/size + "px";
     let cellHeight = 600/size + "px";
 
@@ -33,20 +35,12 @@ createDivs();
 
 function changeSquareColor(e){
     if(e.type === 'mouseover' && mousePressed === false) return;
-    
-    e.target.style.backgroundColor = "gray";
+    let colorValue = colorPenPicker.value;
+
+    e.target.style.backgroundColor = `${colorValue}`;
     e.target.style.border = "none";     
 }
 
-function sliderChangeGrid(){
-    createDivs(slider.value);
-    showValue.textContent = slider.value;
-}
-
-slider.addEventListener('input', sliderChangeGrid);
-
-
-
-
-
-
+slider.addEventListener('input', () => showValue.textContent = `Grid-size: ${slider.value} x ${slider.value}`);
+clearButton.addEventListener('click', () => createDivs(slider.value));
+confirmButton.addEventListener('click', removeDivs);

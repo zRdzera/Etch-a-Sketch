@@ -5,36 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
-
     <link rel="stylesheet" href="style.css" id="style">
+    <link rel="shortcut icon" href="img/pen.ico" type="image/x-icon">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
     <script src="script.js" defer></script>
 </head>
 <body>
 
     <main>
-        <div id="slider-menu">
+        <div id="menu">
             <h1>Etch a Sketch</h1>
 
             <div id="slider">
-                <h3>Choose your grid size</h3>
                 <p>Grid-size: 16 x 16</p>
                 <input type="range" id="grid-size" value="16" min="1" max="64">
-                <button id="confirm-button">Confirm</button>
+                <button id="confirm-button">Confirm size</button>
             </div>
 
-            <div id="picker">
-                <h3>Choose the pen color</h3>
+            <div id="pick-color-type">
                 <input type="color" id="color-picker" value="#000000">
+                <button id="color-button">Single color mode</button>
+                <button id="rgb-button">Random RGB color mode</button>
             </div>
 
             <div id="clear-button">
-                <button value="clear">Clear</button>
+                <button value="clear">Clear grid</button>
             </div>
             
         </div>
